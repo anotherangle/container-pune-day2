@@ -1,0 +1,4 @@
+FROM ubuntu
+RUN mkdir test2
+RUN touch test2/file5
+RUN touch test2/file4

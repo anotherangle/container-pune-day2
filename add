@@ -1,0 +1,2 @@
+FROM ubuntu
+ADD https://thinknyx.com/wp-content/uploads/2019/11/cropped-logo-LOW-2.png /test/logo.png

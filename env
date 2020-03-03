@@ -1,0 +1,4 @@
+FROM ubuntu
+ENV app_name learning
+ENV app_version day2
+RUN mkdir $app_version

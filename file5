@@ -1,0 +1,5 @@
+FROM ubuntu
+RUN mkdir test
+WORKDIR test
+RUN touch file1
+RUN touch file2

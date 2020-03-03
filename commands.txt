@@ -1,0 +1,267 @@
+    1  clear
+    2  vi test
+    3  bash test
+    4  clear
+    5  docker run -d httpd
+    6  docker ps
+    7  curl 172.17.0.2
+    8  docker run -it httpd /bin/bash
+    9  clear
+   10  docker ps
+   11  clear
+   12  docker run -p 8080:80  -d --name myapp httpd
+   13  docker ps
+   14  curl localhost:8080
+   15  curl 172.17.0.4
+   16  docker inspect httpd
+   17  clear
+   18  docker pull nginx
+   19  clear
+   20  docker run -d -P nginx
+   21  docker ps
+   22  docker inspect nginx
+   23  clear
+   24  docker p
+   25  docker ps
+   26  docker run -d -p 8082:80 -p 8083:81 nginx
+   27  docker ps
+   28  clear
+   29  docker rm -f $(docker ps -q -a)
+   30  clear
+   31  docker run -d -p 8081:81 nginx
+   32  docker ps
+   33  docker run -d -p 8084:80 -p 8085:80 nginx
+   34  docker [sps
+   35  docker ps
+   36  clear
+   37  ls
+   38  rm test 
+   39  clear
+   40  ls
+   41  mkdirsomefolder
+   42  clear
+   43  mkdir somedir
+   44  cd somedir/
+   45  vi file1
+   46  vi file2
+   47  vi file3
+   48  vi file4
+   49  clear
+   50  cd ..
+   51  ls
+   52  clear
+   53  ls
+   54  ls somedir/
+   55  docker run -itd -v /home/ubuntu/somedir:/volume  --name lab6 ubuntu
+   56  docker exec -it lab6 /bin/bash
+   57  ls somedir/
+   58  vi file5
+   59  mv file5 somedir/
+   60  docker exec -it lab6 /bin/bash
+   61  ls somedir/
+   62  history
+   63  docker inspect lab6
+   64  clear
+   65  docker run -itd -v /home/ubuntu/somedir:/volume:ro  --name lab7 ubuntu
+   66  docker exec -it lab /bin/bash
+   67  docker exec -it lab7 /bin/bash
+   68  cldar\
+   69  clear
+   70  mkdir htmlfiles
+   71  cd htmlfiles/
+   72  vi index.html
+   73  vi contact.html
+   74  cd ..
+   75  clear
+   76  ls htmlfiles/
+   77  docker run -d -v /home/ubuntu/htmlfiles:/usr/share/nginx/html -P --name lab8 nginx
+   78  docker ps
+   79  cd htmlfiles/
+   80  vi contact.html 
+   81  vi index.html 
+   82  cd ..
+   83  clear
+   84  docker rm -f $(docker ps -q -a)
+   85  docker run -itd --name lab9 ubuntu
+   86  docker images
+   87  docker exec -it lab9 /bin/bash
+   88  ar
+   89  clear
+   90  docker ps
+   91  docker commit lab9 myapp:v1
+   92  docker images
+   93  docker run -it myapp /bin/bash
+   94  docker run -it myapp:v1 /bin/bash
+   95  docker ps
+   96  docker ps -a
+   97  docker commit 4b3c51789460 myapp:v2
+   98  docker images
+   99  clear
+  100  docekr ps
+  101  docker ps
+  102  docker system df
+  103  clear
+  104  docker rm -f $(docker ps -a -q)
+  105  docker rmi $(docker images -q)
+  106  clear
+  107  docker run -itd --name app1 -p 8080:80 ubuntu 
+  108  docker run -itd --name app2 ubuntu 
+  109  docker run -itd --name app3 nginx 
+  110  clear
+  111  docker exec -it app1 /bin/bash
+  112  curl 172.17.0.2
+  113  clear
+  114  docker exec -it app2 /bin/bash
+  115  curl 172.17.0.3
+  116  docker exec -it app2 /bin/bash
+  117  curl 172.17.0.3
+  118  clear
+  119  docker exec -it app3 /bin/bash
+  120  clear
+  121  docker ps
+  122  curl 172.17.0.3
+  123  exit
+  124  clear
+  125  docker ps
+  126  curl 172.17.0.2
+  127  curl 172.17.0.3
+  128  curl 172.17.0.4
+  129  docker commit app1 ericapp:v1
+  130  docker commit app2 ericapp:v2
+  131  docker commit app3 ericapp:v3
+  132  docker images
+  133  clear
+  134  docker rm -f $(docker ps -a -q)
+  135  docker run -itd -p 8080:80 ericapp:v1
+  136  docker run -itd -p 8081:80 ericapp:v2
+  137  docker ps
+  138  docker run -itd -p 8082:80 ericapp:v3
+  139  docker ps
+  140  clear
+  141  docker inspect ericapp:v1
+  142  docker inspect ericapp:v2
+  143  clear
+  144  docker rm -f $(docker ps -a -q)
+  145  clear
+  146  vi Dockerfile
+  147  docker build -t file:v1 .
+  148  docker images
+  149  clear
+  150  docker run -it file:v1 /bin/bash
+  151  cat Dockerfile 
+  152  vi Dockerfile 
+  153  mkdir Dockerfile
+  154  mkdir files
+  155  cd files/
+  156  clear
+  157  cp ../Dockerfile first
+  158  clear
+  159  vi first 
+  160  ls
+  161  cat first 
+  162  docker build -t file:v2 -f first .
+  163  docker inspect file:v2
+  164  vi first 
+  165  docker build -t file:v3 -f first .
+  166  vi first 
+  167  docker build -t file:v4 -f first .
+  168  vi vim
+  169  cat vim 
+  170  docker build -t file:v5 -f vim .
+  171  clear
+  172  vi nginx
+  173  docker build -t file:nginx -f nginx .
+  174  clear
+  175  vi copy
+  176  vi myfile
+  177  vi copy
+  178  ls
+  179  vi copy
+  180  docker build -t file:v9 -f copy .
+  181  docker run -it file:v9 /bin/bash
+  182  cat copy 
+  183  clear
+  184  cat myfile 
+  185  vi nginx 
+  186  docker build -t file:v10 -f nginx .
+  187  docker run -d -P file:v10
+  188  docker ps
+  189  vi nginx 
+  190  vi add
+  191  ls
+  192  docker build -t file:v11 -f add .
+  193  ls
+  194  docker run -it file:v11 /bin/bash
+  195  vi nginx 
+  196  clear
+  197  docker build -t file:v13 -f nginx .
+  198  docker run -d --name permission -P  file:v13
+  199  docker exec -it permission /bin/bash
+  200  clear
+  201  vi file5
+  202  docker build -t file:v15 -f file5 .
+  203  docker run -it file:v15 /bin/bash
+  204  clear
+  205  vi fi5
+  206  vi file5 
+  207  vi apache
+  208  docker build -t apache -f apache .
+  209  docker images
+  210  docker run -d apache 
+  211  docker ps
+  212  curl 172.17.0.4
+  213  clear
+  214  docker build -t apache -f apache .
+  215  docker run -d apache 
+  216  docker ps
+  217  docker ps -a
+  218  docker logs frosty_chebyshev
+  219  vi apache 
+  220  docker build -t apache -f apache .
+  221  docker run -d apache 
+  222  docker ps
+  223  cllear
+  224  clear
+  225  cat apache 
+  226  vi apache 
+  227  docker build -t apache -f apache .
+  228  docker run -d -P apache
+  229  docker p
+  230  docker ps
+  231  docker inspect apache
+  232  clear
+  233  docker run -d apache
+  234  docker ps
+  235  vi apache 
+  236  cat apache 
+  237  vi apache
+  238  clear
+  239  vi env
+  240  cat env 
+  241  docker build -t file:env -f env .
+  242  docker inspect file:env
+  243  docker run -it file:env /bin/bash
+  244  cat env 
+  245  vi env 
+  246  docker build -t file:env -f env .
+  247  docker run -it file:env /bin/bash
+  248  clear
+  249  vi arg
+  250  docker build --build-arg var1=ericsson -t file:arg -f arg  .
+  251  docker run -it file:arg /bin/bash
+  252  clear
+  253  vi arg 
+  254  docker build -t file:arg -f arg  .
+  255  vi arg 
+  256  docker build -t file:arg -f arg  .
+  257  docker run -it file:arg /bin/bash
+  258  clear
+  259  docker images
+  260  clear
+  261  docker tag ericapp:v3 thechetantalwar/puneday2
+  262  docker images
+  263  clear
+  264  docker login
+  265  docker push thechetantalwar/puneday2
+  266  history
+  267  history > commands.txt

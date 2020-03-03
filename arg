@@ -1,0 +1,3 @@
+FROM ubuntu
+ARG var1=testing
+RUN mkdir $var1
